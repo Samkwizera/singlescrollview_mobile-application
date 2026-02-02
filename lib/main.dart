@@ -41,16 +41,94 @@ class UserProfilePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Content will be added in steps
-            Container(
-              padding: const EdgeInsets.all(16),
-              child: const Text(
-                'Profile content will go here...',
-                style: TextStyle(fontSize: 18),
-              ),
-            ),
+            // Profile Header Section
+            _buildProfileHeader(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildProfileHeader() {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          // Profile Avatar
+          const CircleAvatar(
+            radius: 60,
+            backgroundColor: Colors.blue,
+            child: Icon(
+              Icons.person,
+              size: 80,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(height: 16),
+          
+          // Name
+          const Text(
+            'Sarah Johnson',
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 4),
+          
+          // Username
+          Text(
+            '@sarahjohnson',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey[600],
+            ),
+          ),
+          const SizedBox(height: 16),
+          
+          // Bio
+          const Text(
+            '🎨 Digital Artist | 📸 Photography Enthusiast\n'
+            'Creating beautiful things one pixel at a time\n'
+            '🌍 Based in San Francisco',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 15,
+              height: 1.5,
+            ),
+          ),
+          const SizedBox(height: 16),
+          
+          // Action Buttons
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.person_add),
+                label: const Text('Follow'),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 12),
+              OutlinedButton.icon(
+                onPressed: () {},
+                icon: const Icon(Icons.message),
+                label: const Text('Message'),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
