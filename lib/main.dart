@@ -43,6 +43,11 @@ class UserProfilePage extends StatelessWidget {
           children: [
             // Profile Header Section
             _buildProfileHeader(),
+            
+            const Divider(height: 1),
+            
+            // Stats Section
+            _buildStatsSection(),
           ],
         ),
       ),
@@ -130,6 +135,52 @@ class UserProfilePage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildStatsSection() {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          _buildStatItem('Posts', '127'),
+          _buildVerticalDivider(),
+          _buildStatItem('Followers', '2.5K'),
+          _buildVerticalDivider(),
+          _buildStatItem('Following', '342'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatItem(String label, String count) {
+    return Column(
+      children: [
+        Text(
+          count,
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey[600],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildVerticalDivider() {
+    return Container(
+      height: 40,
+      width: 1,
+      color: Colors.grey[300],
     );
   }
 }
