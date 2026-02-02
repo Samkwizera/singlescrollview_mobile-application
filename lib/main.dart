@@ -53,6 +53,18 @@ class UserProfilePage extends StatelessWidget {
             
             // About Section
             _buildAboutSection(),
+            
+            const Divider(height: 1),
+            
+            // Interests Section
+            _buildInterestsSection(),
+            
+            const Divider(height: 1),
+            
+            // Photo Gallery Section
+            _buildPhotoGallery(),
+            
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -247,6 +259,90 @@ class UserProfilePage extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildInterestsSection() {
+    final interests = [
+      'Photography',
+      'Digital Art',
+      'UI Design',
+      'Travel',
+      'Coffee',
+      'Music',
+      'Hiking',
+      'Reading',
+    ];
+
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Interests',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: interests
+                .map((interest) => Chip(
+                      label: Text(interest),
+                      backgroundColor: Colors.blue[50],
+                      labelStyle: TextStyle(color: Colors.blue[700]),
+                    ))
+                .toList(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPhotoGallery() {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Recent Photos',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 12),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+            ),
+            itemCount: 12,
+            itemBuilder: (context, index) {
+              return Container(
+                decoration: BoxDecoration(
+                  color: Colors.primaries[index % Colors.primaries.length]
+                      .withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(
+                  Icons.photo,
+                  size: 40,
+                  color: Colors.primaries[index % Colors.primaries.length],
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
