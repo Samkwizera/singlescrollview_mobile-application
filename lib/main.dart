@@ -13,8 +13,17 @@ class MyApp extends StatelessWidget {
       title: 'SingleChildScrollView Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.light,
+        ),
         useMaterial3: true,
+        cardTheme: CardTheme(
+          elevation: 2,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
       ),
       home: const UserProfilePage(),
     );
@@ -38,6 +47,7 @@ class UserProfilePage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.zero,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -74,13 +84,23 @@ class UserProfilePage extends StatelessWidget {
   Widget _buildProfileHeader() {
     return Container(
       padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.blue.withOpacity(0.1),
+            Colors.white,
+          ],
+        ),
+      ),
       child: Column(
         children: [
           // Profile Avatar
-          const CircleAvatar(
+          CircleAvatar(
             radius: 60,
-            backgroundColor: Colors.blue,
-            child: Icon(
+            backgroundColor: Colors.blue[600],
+            child: const Icon(
               Icons.person,
               size: 80,
               color: Colors.white,
