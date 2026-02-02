@@ -48,6 +48,11 @@ class UserProfilePage extends StatelessWidget {
             
             // Stats Section
             _buildStatsSection(),
+            
+            const Divider(height: 1),
+            
+            // About Section
+            _buildAboutSection(),
           ],
         ),
       ),
@@ -181,6 +186,67 @@ class UserProfilePage extends StatelessWidget {
       height: 40,
       width: 1,
       color: Colors.grey[300],
+    );
+  }
+
+  Widget _buildAboutSection() {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'About',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          
+          _buildAboutItem(
+            Icons.work_outline,
+            'Senior UI/UX Designer at TechCorp',
+          ),
+          const SizedBox(height: 12),
+          
+          _buildAboutItem(
+            Icons.location_on_outlined,
+            'San Francisco, California',
+          ),
+          const SizedBox(height: 12),
+          
+          _buildAboutItem(
+            Icons.link,
+            'www.sarahjohnson.design',
+          ),
+          const SizedBox(height: 12),
+          
+          _buildAboutItem(
+            Icons.calendar_today_outlined,
+            'Joined March 2020',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAboutItem(IconData icon, String text) {
+    return Row(
+      children: [
+        Icon(
+          icon,
+          size: 20,
+          color: Colors.grey[600],
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            text,
+            style: const TextStyle(fontSize: 15),
+          ),
+        ),
+      ],
     );
   }
 }
