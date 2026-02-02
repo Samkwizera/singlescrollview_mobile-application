@@ -1,6 +1,6 @@
 # SingleChildScrollView Demo App
 
-A Flutter demo application showcasing the **SingleChildScrollView** widget through a real-world user profile page example.
+A Flutter demo application showcasing the **SingleChildScrollView** widget through a real-world user profile page example. To be presented on 4 February 2026 
 
 ##  About
 
@@ -56,6 +56,49 @@ This app demonstrates how to use SingleChildScrollView to create scrollable cont
    flutter run -d ios
    ```
 
+##  Screenshots
+
+<div style="display: flex; gap: 20px;">
+  <img src="screenshots/profile_top.png" alt="Profile Top Section" width="300"/>
+  <img src="screenshots/profile_bottom.png" alt="Profile Bottom Section" width="300"/>
+</div>
+
+##  Key SingleChildScrollView Properties
+
+### 1. **child** (Widget)
+The single widget that will be scrollable. This is the main content container - typically a `Column` or `Container` that holds all your scrollable content.
+
+```dart
+SingleChildScrollView(
+  child: Column(
+    children: [/* your widgets here */],
+  ),
+)
+```
+
+### 2. **padding** (EdgeInsetsGeometry?)
+Adds padding around the scrollable content. Use `EdgeInsets.zero` for no padding, or customize with values like `EdgeInsets.all(16)`.
+
+```dart
+SingleChildScrollView(
+  padding: EdgeInsets.all(20),  // Adds 20px padding on all sides
+  child: Column(...),
+)
+```
+
+### 3. **physics** (ScrollPhysics?)
+Controls the scroll behavior. Common options:
+- `BouncingScrollPhysics()` - iOS-style bounce effect
+- `ClampingScrollPhysics()` - Android-style edge glow
+- `AlwaysScrollableScrollPhysics()` - Always allows scrolling even if content fits
+- `NeverScrollableScrollPhysics()` - Disables scrolling
+
+```dart
+SingleChildScrollView(
+  physics: BouncingScrollPhysics(),  // iOS-style bouncing
+  child: Column(...),
+)
+```
 
 
 ##  Links

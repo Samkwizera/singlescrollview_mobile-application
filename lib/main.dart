@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
         useMaterial3: true,
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -40,10 +40,7 @@ class UserProfilePage extends StatelessWidget {
         title: const Text('User Profile'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {},
-          ),
+          IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
         ],
       ),
       body: SingleChildScrollView(
@@ -53,27 +50,27 @@ class UserProfilePage extends StatelessWidget {
           children: [
             // Profile Header Section
             _buildProfileHeader(),
-            
+
             const Divider(height: 1),
-            
+
             // Stats Section
             _buildStatsSection(),
-            
+
             const Divider(height: 1),
-            
+
             // About Section
             _buildAboutSection(),
-            
+
             const Divider(height: 1),
-            
+
             // Interests Section
             _buildInterestsSection(),
-            
+
             const Divider(height: 1),
-            
+
             // Photo Gallery Section
             _buildPhotoGallery(),
-            
+
             const SizedBox(height: 20),
           ],
         ),
@@ -88,10 +85,7 @@ class UserProfilePage extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            Colors.blue.withOpacity(0.1),
-            Colors.white,
-          ],
+          colors: [Colors.blue.withOpacity(0.1), Colors.white],
         ),
       ),
       child: Column(
@@ -100,47 +94,34 @@ class UserProfilePage extends StatelessWidget {
           CircleAvatar(
             radius: 60,
             backgroundColor: Colors.blue[600],
-            child: const Icon(
-              Icons.person,
-              size: 80,
-              color: Colors.white,
-            ),
+            child: const Icon(Icons.person, size: 80, color: Colors.white),
           ),
           const SizedBox(height: 16),
-          
+
           // Name
           const Text(
             'Sarah Johnson',
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
-          
+
           // Username
           Text(
             '@sarahjohnson',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey[600],
-            ),
+            style: TextStyle(fontSize: 16, color: Colors.grey[600]),
           ),
           const SizedBox(height: 16),
-          
+
           // Bio
           const Text(
             '🎨 Digital Artist | 📸 Photography Enthusiast\n'
             'Creating beautiful things one pixel at a time\n'
             '🌍 Based in San Francisco',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 15,
-              height: 1.5,
-            ),
+            style: TextStyle(fontSize: 15, height: 1.5),
           ),
           const SizedBox(height: 16),
-          
+
           // Action Buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -196,29 +177,16 @@ class UserProfilePage extends StatelessWidget {
       children: [
         Text(
           count,
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 4),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey[600],
-          ),
-        ),
+        Text(label, style: TextStyle(fontSize: 14, color: Colors.grey[600])),
       ],
     );
   }
 
   Widget _buildVerticalDivider() {
-    return Container(
-      height: 40,
-      width: 1,
-      color: Colors.grey[300],
-    );
+    return Container(height: 40, width: 1, color: Colors.grey[300]);
   }
 
   Widget _buildAboutSection() {
@@ -229,35 +197,26 @@ class UserProfilePage extends StatelessWidget {
         children: [
           const Text(
             'About',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          
+
           _buildAboutItem(
             Icons.work_outline,
             'Senior UI/UX Designer at TechCorp',
           ),
           const SizedBox(height: 12),
-          
+
           _buildAboutItem(
             Icons.location_on_outlined,
             'San Francisco, California',
           ),
           const SizedBox(height: 12),
-          
-          _buildAboutItem(
-            Icons.link,
-            'www.sarahjohnson.design',
-          ),
+
+          _buildAboutItem(Icons.link, 'www.sarahjohnson.design'),
           const SizedBox(height: 12),
-          
-          _buildAboutItem(
-            Icons.calendar_today_outlined,
-            'Joined March 2020',
-          ),
+
+          _buildAboutItem(Icons.calendar_today_outlined, 'Joined March 2020'),
         ],
       ),
     );
@@ -266,18 +225,9 @@ class UserProfilePage extends StatelessWidget {
   Widget _buildAboutItem(IconData icon, String text) {
     return Row(
       children: [
-        Icon(
-          icon,
-          size: 20,
-          color: Colors.grey[600],
-        ),
+        Icon(icon, size: 20, color: Colors.grey[600]),
         const SizedBox(width: 12),
-        Expanded(
-          child: Text(
-            text,
-            style: const TextStyle(fontSize: 15),
-          ),
-        ),
+        Expanded(child: Text(text, style: const TextStyle(fontSize: 15))),
       ],
     );
   }
@@ -301,21 +251,20 @@ class UserProfilePage extends StatelessWidget {
         children: [
           const Text(
             'Interests',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 12),
           Wrap(
             spacing: 8,
             runSpacing: 8,
             children: interests
-                .map((interest) => Chip(
-                      label: Text(interest),
-                      backgroundColor: Colors.blue[50],
-                      labelStyle: TextStyle(color: Colors.blue[700]),
-                    ))
+                .map(
+                  (interest) => Chip(
+                    label: Text(interest),
+                    backgroundColor: Colors.blue[50],
+                    labelStyle: TextStyle(color: Colors.blue[700]),
+                  ),
+                )
                 .toList(),
           ),
         ],
@@ -331,10 +280,7 @@ class UserProfilePage extends StatelessWidget {
         children: [
           const Text(
             'Recent Photos',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 12),
           GridView.builder(
