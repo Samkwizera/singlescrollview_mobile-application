@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SingleChildScrollView Demo',
+      title: 'SingleChildScrollView Demo - Updated!',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -43,7 +43,7 @@ class UserProfilePage extends StatelessWidget {
           IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
         ],
       ),
-      body: SingleChildScrollView(
+      body:SingleChildScrollView(
         padding: EdgeInsets.zero,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
